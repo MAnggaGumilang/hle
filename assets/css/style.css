@@ -1,0 +1,95 @@
+/*************************
+ *	Global Style
+ *************************/
+
+*{
+	margin:0;
+	padding:0;
+	font-family:"TheSans"calibri,arial,sans-serif;
+	color:#333;
+}
+html{height:100%;}
+.clearfix{clear:both;}
+
+/*************************
+ *	Header, Toolbar
+ *************************/
+
+#toolbar{
+	border-top:1px solid #e3e3e3;
+	border-bottom:1px solid #e3e3e3;
+	padding:10px;
+	box-shadow:0 5px 10px -7px rgba(0,0,0,.3);
+	height:30px;
+	background: -webkit-linear-gradient(top,#fff,#efefef);
+}
+#editor-toolbar,#preview-toolbar{
+	width:100%;
+	float:left;
+}
+#toolbar h2{
+	font-weight:normal;
+	text-shadow:0 1px 1px white;
+	color:#888;
+	line-height:35px;
+	display: inline-block;
+}
+
+.button, .tombol{
+	padding:5px 10px;
+	border:1px solid #e3e3e3;
+	border-radius:3px;
+	cursor:pointer;
+	background: -webkit-linear-gradient(top,#fff,#eee);
+	box-shadow:0 1px 1px white;
+}
+
+/*************************
+ *	IDE (EDITOR & PREVIEW)
+ *************************/
+#ide{
+	padding-top:10px;
+}
+#editor, #preview{
+	width:100%;
+	float:left;
+	height:100%;
+	overflow: scrolled;
+	border: 1px solid black;
+}
+.container{
+	height:100%;
+}
+#editor .container{
+	border-right:1px solid #e3e3e3;
+	bottom:10px;
+}
+.container textarea,.container iframe,.CodeMirror{
+	height:100%;
+	width:100%;
+	resize:none;
+	border:none;
+	outline:none;
+}
+
+/*************************
+ *	CodeMirror Style Fix
+ *************************/
+.CodeMirror-scroll{height:100%  !important}
+.CodeMirror-gutter,.CodeMirror-lines{line-height:20px;}
+
+::-webkit-scrollbar {
+	width : 5px;
+	height: 5px;
+}
+::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 10px;
+	border-radius        : 10px;
+	background           : #A8DAEA;
+}
+::-webkit-slider-thumb element,
+::-webkit-scrollbar-track {
+	background           : white;
+	-webkit-border-radius: 10px;
+	border-radius        : 10px;
+}
