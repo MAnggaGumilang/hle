@@ -15,9 +15,9 @@
     <!-- external -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
-    
     <link rel="stylesheet" type="text/css" href="../../assets/css/froala_editor.pkgd.css">
     <link rel="stylesheet" type="text/css" href="../../assets/css/froala_style.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/fine-uploader-gallery.css">
 
     <meta class="foundation-mq">
     <style type="text/css">
@@ -25,6 +25,82 @@
         float: left;
     }
     </style>
+        <script type="text/template" id="qq-template-gallery">
+        <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop files here">
+            <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+            </div>
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span class="qq-upload-drop-area-text-selector"></span>
+            </div>
+            <div class="qq-upload-button-selector qq-upload-button">
+                <div>Upload a file</div>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite" aria-relevant="additions removals">
+                <li>
+                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                    <div class="qq-progress-bar-container-selector qq-progress-bar-container">
+                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <div class="qq-thumbnail-wrapper">
+                        <img class="qq-thumbnail-selector" qq-max-size="120" qq-server-scale>
+                    </div>
+                    <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
+                    <button type="button" class="qq-upload-retry-selector qq-upload-retry">
+                        <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
+                        Retry
+                    </button>
+
+                    <div class="qq-file-info">
+                        <div class="qq-file-name">
+                            <span class="qq-upload-file-selector qq-upload-file"></span>
+                            <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
+                        </div>
+                        <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                        <span class="qq-upload-size-selector qq-upload-size"></span>
+                        <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
+                            <span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
+                        </button>
+                        <button type="button" class="qq-btn qq-upload-pause-selector qq-upload-pause">
+                            <span class="qq-btn qq-pause-icon" aria-label="Pause"></span>
+                        </button>
+                        <button type="button" class="qq-btn qq-upload-continue-selector qq-upload-continue">
+                            <span class="qq-btn qq-continue-icon" aria-label="Continue"></span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+
+            <dialog class="qq-alert-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Close</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-confirm-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">No</button>
+                    <button type="button" class="qq-ok-button-selector">Yes</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-prompt-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <input type="text">
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                    <button type="button" class="qq-ok-button-selector">Ok</button>
+                </div>
+            </dialog>
+        </div>
+    </script>
 </head>
 
 <body onload="init()">
@@ -189,7 +265,7 @@ Bantuan <span class="primary badge">0</span> </button></li>
                     <div class="row top space">
                         <div class="columns">
                             <div class="top-bar">
-                                                             <h2 style="display: block;" align="center">Summarization | Level: Mudah </h2>
+                                                             <h2 style="display: block;" align="center"> Draw </h2>
                 <hr width="75%"/>
                             </div>
                         </div>
@@ -210,7 +286,16 @@ Bantuan <span class="primary badge">0</span> </button></li>
                                     </div>
                                     <div class="tabs-panel" id="panel2">
                                       <div class="small-12 large-12 columns">
-                                      <canvas id="can" width="1000px" height="400px" style="border:2px solid;"></canvas>
+                                        <ul>
+                                        <li> Pada strategi draw ini, kalian diperbolehkan menggunakan tools apapun untuk membuat diagram/mind map/atau jenis grafis yang lain sebagai proses pemahaman materi yang sudah kalian baca </li>
+                                        <li> Silahkan menggunakan aplikasi apapun untuk membuat diagram, Untuk aplikasi yang direkomendasikan dapat menggunakan <a href="https://www.draw.io/"> Draw IO </a> </li>
+                                        <li> Silahkan membuat diagram baru, dan login menggunakan akun Google anda agar dapat menyimpan hasil diagram yang telah anda buat dengan Google Drive </li>
+                                        <li> Setelah selesai membuat diagram, silahkan unggah hasil pembuatan diagram anda ke dalam kotak upload di bawah ini (dalam format jpeg/png) </li>
+                                        <li> Hasil unggah diagram akan mempengaruhi penilaian dosen terhadap pemahaman materi kalian </li>
+                                    </ul>
+                                     <div id="fine-uploader-gallery"></div>
+
+<!--                                       <canvas id="can" width="1000px" height="400px" style="border:2px solid;"></canvas>
                                       </div>
         <div class="small-4 large-4 columns">
             <h3>Choose Color</h3>
@@ -235,7 +320,7 @@ Bantuan <span class="primary badge">0</span> </button></li>
         </div>
         <div class="small-12 large-12 columns">
             <img id="canvasimg" style="display:none;">
-        </div>
+        </div> -->
                                      </div>
                         </div>
                     </div>
@@ -246,6 +331,7 @@ Bantuan <span class="primary badge">0</span> </button></li>
     </div>
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../assets/js/foundation.js"></script>
+        <script src="../../assets/js/fine-uploader.js"></script>
  
     <script>
     $(document).foundation();
@@ -253,121 +339,136 @@ Bantuan <span class="primary badge">0</span> </button></li>
             $('#exampleModal1').foundation('open');
              });
 
-    var canvas, ctx, flag = false,
-        prevX = 0,
-        currX = 0,
-        prevY = 0,
-        currY = 0,
-        dot_flag = false;
+    // var canvas, ctx, flag = false,
+    //     prevX = 0,
+    //     currX = 0,
+    //     prevY = 0,
+    //     currY = 0,
+    //     dot_flag = false;
 
-    var x = "black",
-        y = 2;
+    // var x = "black",
+    //     y = 2;
     
-    function init() {
-        canvas = document.getElementById('can');
-        ctx = canvas.getContext("2d");
-        w = canvas.width;
-        h = canvas.height;
+    // function init() {
+    //     canvas = document.getElementById('can');
+    //     ctx = canvas.getContext("2d");
+    //     w = canvas.width;
+    //     h = canvas.height;
     
-        canvas.addEventListener("mousemove", function (e) {
-            findxy('move', e)
-        }, false);
-        canvas.addEventListener("mousedown", function (e) {
-            findxy('down', e)
-        }, false);
-        canvas.addEventListener("mouseup", function (e) {
-            findxy('up', e)
-        }, false);
-        canvas.addEventListener("mouseout", function (e) {
-            findxy('out', e)
-        }, false);
-    }
+    //     canvas.addEventListener("mousemove", function (e) {
+    //         findxy('move', e)
+    //     }, false);
+    //     canvas.addEventListener("mousedown", function (e) {
+    //         findxy('down', e)
+    //     }, false);
+    //     canvas.addEventListener("mouseup", function (e) {
+    //         findxy('up', e)
+    //     }, false);
+    //     canvas.addEventListener("mouseout", function (e) {
+    //         findxy('out', e)
+    //     }, false);
+    // }
     
-    function color(obj) {
-        switch (obj.id) {
-            case "green":
-                x = "green";
-                break;
-            case "blue":
-                x = "blue";
-                break;
-            case "red":
-                x = "red";
-                break;
-            case "yellow":
-                x = "yellow";
-                break;
-            case "orange":
-                x = "orange";
-                break;
-            case "black":
-                x = "black";
-                break;
-            case "white":
-                x = "white";
-                break;
-        }
-        if (x == "white") y = 14;
-        else y = 2;
+    // function color(obj) {
+    //     switch (obj.id) {
+    //         case "green":
+    //             x = "green";
+    //             break;
+    //         case "blue":
+    //             x = "blue";
+    //             break;
+    //         case "red":
+    //             x = "red";
+    //             break;
+    //         case "yellow":
+    //             x = "yellow";
+    //             break;
+    //         case "orange":
+    //             x = "orange";
+    //             break;
+    //         case "black":
+    //             x = "black";
+    //             break;
+    //         case "white":
+    //             x = "white";
+    //             break;
+    //     }
+    //     if (x == "white") y = 14;
+    //     else y = 2;
     
-    }
+    // }
     
-    function draw() {
-        ctx.beginPath();
-        ctx.moveTo(prevX, prevY);
-        ctx.lineTo(currX, currY);
-        ctx.strokeStyle = x;
-        ctx.lineWidth = y;
-        ctx.stroke();
-        ctx.closePath();
-    }
+    // function draw() {
+    //     ctx.beginPath();
+    //     ctx.moveTo(prevX, prevY);
+    //     ctx.lineTo(currX, currY);
+    //     ctx.strokeStyle = x;
+    //     ctx.lineWidth = y;
+    //     ctx.stroke();
+    //     ctx.closePath();
+    // }
     
-    function erase() {
-        var m = confirm("Want to clear");
-        if (m) {
-            ctx.clearRect(0, 0, w, h);
-            document.getElementById("canvasimg").style.display = "none";
-        }
-    }
+    // function erase() {
+    //     var m = confirm("Want to clear");
+    //     if (m) {
+    //         ctx.clearRect(0, 0, w, h);
+    //         document.getElementById("canvasimg").style.display = "none";
+    //     }
+    // }
     
-    function save() {
-        document.getElementById("canvasimg").style.border = "2px solid";
-        var dataURL = canvas.toDataURL();
-        document.getElementById("canvasimg").src = dataURL;
-        document.getElementById("canvasimg").style.display = "inline";
-    }
+    // function save() {
+    //     document.getElementById("canvasimg").style.border = "2px solid";
+    //     var dataURL = canvas.toDataURL();
+    //     document.getElementById("canvasimg").src = dataURL;
+    //     document.getElementById("canvasimg").style.display = "inline";
+    // }
     
-    function findxy(res, e) {
-        if (res == 'down') {
-            prevX = currX;
-            prevY = currY;
-            currX = e.clientX - canvas.offsetLeft;
-            currY = e.clientY - canvas.offsetTop;
+    // function findxy(res, e) {
+    //     if (res == 'down') {
+    //         prevX = currX;
+    //         prevY = currY;
+    //         currX = e.clientX - canvas.offsetLeft;
+    //         currY = e.clientY - canvas.offsetTop;
     
-            flag = true;
-            dot_flag = true;
-            if (dot_flag) {
-                ctx.beginPath();
-                ctx.fillStyle = x;
-                ctx.fillRect(currX, currY, 2, 2);
-                ctx.closePath();
-                dot_flag = false;
+    //         flag = true;
+    //         dot_flag = true;
+    //         if (dot_flag) {
+    //             ctx.beginPath();
+    //             ctx.fillStyle = x;
+    //             ctx.fillRect(currX, currY, 2, 2);
+    //             ctx.closePath();
+    //             dot_flag = false;
+    //         }
+    //     }
+    //     if (res == 'up' || res == "out") {
+    //         flag = false;
+    //     }
+    //     if (res == 'move') {
+    //         if (flag) {
+    //             prevX = currX;
+    //             prevY = currY;
+    //             currX = e.clientX - canvas.offsetLeft;
+    //             currY = e.clientY - canvas.offsetTop;
+    //             draw();
+    //         }
+    //     }
+    // }
+ var galleryUploader = new qq.FineUploader({
+            element: document.getElementById("fine-uploader-gallery"),
+            template: 'qq-template-gallery',
+            request: {
+                endpoint: '/server/uploads'
+            },
+            thumbnails: {
+                placeholders: {
+                    waitingPath: '/source/placeholders/waiting-generic.png',
+                    notAvailablePath: '/source/placeholders/not_available-generic.png'
+                }
+            },
+            validation: {
+                allowedExtensions: ['jpeg', 'jpg', 'gif', 'png']
             }
-        }
-        if (res == 'up' || res == "out") {
-            flag = false;
-        }
-        if (res == 'move') {
-            if (flag) {
-                prevX = currX;
-                prevY = currY;
-                currX = e.clientX - canvas.offsetLeft;
-                currY = e.clientY - canvas.offsetTop;
-                draw();
-            }
-        }
-    }
-
+        });
     </script>
 </body>
 
