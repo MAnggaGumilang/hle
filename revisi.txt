@@ -1,0 +1,17 @@
+1. MAI
+yang diproses nilai Y/N
+Y = 1
+N = 0
+
+Skor MAI mhs di kategorikan (Hi, Me, Lo)
+
+2. Yang di centang Goalnya, bukan sub-goalnya
+
+3. Activating Prior Knowledge, jika hasil skor jelek, maka user kembali ke goal sebelumnya.
+
+4. Learning Option Strategy,
+Pada recommendasi, di visualisasikan dengan 5 stars
+
+hanya 3 opsi, practical strategy menjadi salah satu tahap 
+username, password, apn, nama pengguna
+:3data

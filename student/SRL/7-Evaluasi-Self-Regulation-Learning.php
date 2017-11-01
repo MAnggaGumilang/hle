@@ -1,3 +1,11 @@
+<?php
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+session_start();
+include("connect.php");
+if (isset($_SESSION['idlog']) && isset($_SESSION['namalog'])){
+$idlog=$_SESSION['idlog'];
+$namalog=$_SESSION['namalog'];
+?>
 <!DOCTYPE html>
 <html class="" lang="en">
 
@@ -80,118 +88,183 @@
                         <div class="page heading">
                             <h2 style="display: block;" align="center">Self-Regulation Learning Evaluation</h2>
                             <hr width="75%" />
+                            <?php
+                    $mhs= mysqli_query($connect, "SELECT * FROM tb_evaluasi_srl WHERE id_mhs='$_SESSION[idlog]'");
+                    $mai_mhs=mysqli_num_rows($mhs);
+            if ($mai_mhs==0){
+            ?>
+                            <form action=""  method="post" id="add-mai" class="form-horizontal">
                             <table class="projects table">
                                 <thead>
                                     <tr>
                                         <th width="5%">Nomor</th>
-                                        <th width="85%">Pertanyaan</th>
-                                        <th width="10%">Jawaban</th>
+                                        <th width="75%">Pertanyaan</th>
+                                        <th width="20%">Jawaban</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><code>1</code></td>
                                         <td>
-                                            Saya pernah mendengar materi ... sebelumnya, dan saya sudah sedikit memahaminya.
+                                           Saya memperoleh materi tentang Sorting I, tetapi tidak cukup untuk mencapai tujuan pembelajaran saya.
                                         </td>
                                         <td>
                                             <div class="switch large">
-                                                <input class="switch-input" id="1" type="checkbox" name="exampleSwitch">
-                                                <label class="switch-paddle" for="1">
-                                                    <span class="show-for-sr">Do you like me?</span>
-                                                    <span class="switch-active" aria-hidden="true">Y</span>
-                                                    <span class="switch-inactive" aria-hidden="true">N</span>
-                                                </label>
+                                            <fieldset>
+                                            <input type="radio" name="soal1" value="1" id="soal60"><label for="soal10">Ya</label>
+                                            <input type="radio" name="soal1" value="0" id="soal61"><label for="soal11">Tidak</label>
+                                            
+                                          </fieldset>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><code>2</code></td>
                                         <td>
-                                            Saya memahami materi ... dengan baik.
+                                           Materi Sorting I dengan menggunakan (video/draw/summarization) telah memberikan informasi yang saya butuhkan untuk memahami materi.
                                         </td>
                                         <td>
                                             <div class="switch large">
-                                                <input class="switch-input" id="2" type="checkbox" name="exampleSwitch">
-                                                <label class="switch-paddle" for="2">
-                                                    <span class="show-for-sr">Do you like me?</span>
-                                                    <span class="switch-active" aria-hidden="true">Y</span>
-                                                    <span class="switch-inactive" aria-hidden="true">N</span>
-                                                </label>
+                                            <fieldset>
+                                            <input type="radio" name="soal2" value="1" id="soal60"><label for="soal20">Ya</label>
+                                            <input type="radio" name="soal2" value="0" id="soal61"><label for="soal21">Tidak</label>
+                                            
+                                          </fieldset>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><code>3</code></td>
                                         <td>
-                                            Materi ... memang yang saya perlukan untuk mencapai tujuan belajar saya.
+                                            Saya pernah mendengar materi Sorting I sebelumnya, dan saya sudah sedikit memahaminya.
                                         </td>
                                         <td>
                                             <div class="switch large">
-                                                <input class="switch-input" id="3" type="checkbox" name="exampleSwitch">
-                                                <label class="switch-paddle" for="3">
-                                                    <span class="show-for-sr">Do you like me?</span>
-                                                    <span class="switch-active" aria-hidden="true">Y</span>
-                                                    <span class="switch-inactive" aria-hidden="true">N</span>
-                                                </label>
+                                            <fieldset>
+                                            <input type="radio" name="soal3" value="1" id="soal60"><label for="soal30">Ya</label>
+                                            <input type="radio" name="soal3" value="0" id="soal61"><label for="soal31">Tidak</label>
+                                            
+                                          </fieldset>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><code>4</code></td>
                                         <td>
-                                            Menggunakan strategi ... dalam mempelajari ... sangat membantu saya untuk memahaminya.
+                                            Setelah belajar menggunakan HLE ini, saya memahami materi Sorting I dengan baik.
                                         </td>
                                         <td>
                                             <div class="switch large">
-                                                <input class="switch-input" id="4" type="checkbox" name="exampleSwitch">
-                                                <label class="switch-paddle" for="4">
-                                                    <span class="show-for-sr">Do you like me?</span>
-                                                    <span class="switch-active" aria-hidden="true">Y</span>
-                                                    <span class="switch-inactive" aria-hidden="true">N</span>
-                                                </label>
+                                            <fieldset>
+                                            <input type="radio" name="soal4" value="1" id="soal60"><label for="soal40">Ya</label>
+                                            <input type="radio" name="soal4" value="0" id="soal61"><label for="soal41">Tidak</label>
+                                            
+                                          </fieldset>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><code>5</code></td>
                                         <td>
-                                            Waktu yang disediakan dalam <i> Hypermedia Learning Environment </i> ini cukup bagi saya
+                                            Saya berhasil mencapai tujuan belajar saya.
                                         </td>
                                         <td>
                                             <div class="switch large">
-                                                <input class="switch-input" id="5" type="checkbox" name="exampleSwitch">
-                                                <label class="switch-paddle" for="5">
-                                                    <span class="show-for-sr">Do you like me?</span>
-                                                    <span class="switch-active" aria-hidden="true">Y</span>
-                                                    <span class="switch-inactive" aria-hidden="true">N</span>
-                                                </label>
+                                            <fieldset>
+                                            <input type="radio" name="soal5" value="1" id="soal60"><label for="soal50">Ya</label>
+                                            <input type="radio" name="soal5" value="0" id="soal61"><label for="soal51">Tidak</label>
+                                            
+                                          </fieldset>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><code>6</code></td>
                                         <td>
+                                            Menggunakan strategi yang saya pilih tadi dalam mempelajari Sorting I sangat membantu saya untuk memahaminya.
+                                        </td>
+                                        <td>
+                                            <div class="switch large">
+                                            <fieldset>
+                                            <input type="radio" name="soal6" value="1" id="soal60"><label for="soal60">Ya</label>
+                                            <input type="radio" name="soal6" value="0" id="soal61"><label for="soal61">Tidak</label>
+                                            
+                                          </fieldset>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>7</code></td>
+                                        <td>
+                                            Waktu yang disediakan dalam <i> Hypermedia Learning Environment </i> ini cukup bagi saya
+                                        </td>
+                                        <td>
+                                            <div class="switch large">
+                                            <fieldset>
+                                            <input type="radio" name="soal7" value="1" id="soal70"><label for="soal70">Ya</label>
+                                            <input type="radio" name="soal7" value="0" id="soal71"><label for="soal71">Tidak</label>
+                                            
+                                          </fieldset>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>8</code></td>
+                                        <td>
                                             Belajar dengan menggunakan <i> Hypermedia </i> ini lebih mudah dibanding membaca buku.
                                         </td>
                                         <td>
                                             <div class="switch large">
-                                                <input class="switch-input" id="6" type="checkbox" name="exampleSwitch">
-                                                <label class="switch-paddle" for="6">
-                                                    <span class="show-for-sr">Do you like me?</span>
-                                                    <span class="switch-active" aria-hidden="true">Y</span>
-                                                    <span class="switch-inactive" aria-hidden="true">N</span>
-                                                </label>
+                                            <fieldset>
+                                            <input type="radio" name="soal8" value="1" id="soal80"><label for="soal80">Ya</label>
+                                            <input type="radio" name="soal8" value="0" id="soal81"><label for="soal81">Tidak</label>
+                                            
+                                          </fieldset>
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <a class="button success" data-open="exampleModal1">See Results</a>
-                            <div class="reveal" id="exampleModal1" data-reveal>
-                                <h2 align="center">Results And Recomendations</h2>
-                                <p class="lead">Skor Evaluasi Materi: ...</p>
-                                <p class="lead">Hasil Monitoring SRL:</p>
+                            <div class="form-actions">
+                      <button type="submit" name="submit" class="button success expanded">Submit</button> 
+                    </div> <!-- /form-actions -->                            
+                            </form>
+
+
+
+
+                            <?php }
+              else {
+                ?>
+               <div class="columns main-wrapper rounded shadow">
+                 <div class="alert alert-success" align="left"><h5>Anda sudah melakukan evaluasi SRL dan materi Sorting I.</h5><br>
+
+                    <?php
+
+                    $tampil_skor=mysqli_query("SELECT
+tb_evaluasi_sorting1.id_mhs,
+tb_evaluasi_sorting1.nama_lengkap,
+tb_evaluasi_sorting1.no1,
+tb_evaluasi_sorting1.no2,
+tb_evaluasi_sorting1.no3,
+tb_evaluasi_sorting1.no4,
+tb_evaluasi_sorting1.no5,
+tb_evaluasi_sorting1.no6,
+tb_evaluasi_sorting1.no7,
+tb_evaluasi_sorting1.no8,
+tb_evaluasi_sorting1.no9,
+tb_evaluasi_sorting1.no10,
+tb_evaluasi_sorting1.nilai as nilai_evaluasi_materi,
+tb_evaluasi_sorting1.waktu_pengisian
+FROM
+tb_evaluasi_sorting1
+WHERE id_mhs='$_SESSION[idlog]'");
+                    $show_skor_materi=mysqli_fetch_array($tampil_skor);
+                    $skor_materi=$show_skor_materi['nilai_evaluasi_materi'];
+                    ?>
+
+                                <p class="lead">Skor Evaluasi Materi: <?php echo "$skor_materi"; ?> </p>
+                                <p class="lead">Hasil Monitoring SRL: <?php   ?> </p>
                                 <ul>
                                     <li>Pengetahuan: ....</li> 
                                     <li>Pemahaman: ....</li> 
@@ -201,10 +274,119 @@
                                     <li>Tingkat Kesulitan: ....</li> 
                                 </ul>
                                 <p> Hasil Belajar Anda dalam Materi ... menggunakan Strategi ... adalah ... , Sehingga anda direkomendasikan untuk ....  </p>
-                                <button class="close-b  utton" data-close aria-label="Close reveal" type="button">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
+                                
+
+
+
+
+
+
+
+
+                  <a href="../dashboard.php" class="pagination-next button">Kembali ke dashboard</a></div></div>
+                <?php
+              }
+              ?>
+
+
+
+                            <?php
+
+
+                            if (isset($_POST['submit']))
+                            {
+                                $idlog=$_SESSION['idlog'];
+                                $namalog=$_SESSION['namalog'];
+                                $soal1=$_POST['soal1'];
+                                $soal2=$_POST['soal2'];
+                                $soal3=$_POST['soal3'];
+                                $soal4=$_POST['soal4'];
+                                $soal5=$_POST['soal5'];
+                                $soal6=$_POST['soal6'];
+                                $soal7=$_POST['soal7'];
+                                $soal8=$_POST['soal8'];
+                            
+      // echo "masuk";
+
+    if($soal1=="" || $soal2=="" ||$soal3=="" || $soal4=="" || $soal5=="" || $soal6=="" || $soal7=="" || $soal8=="")
+    {
+        echo "<script type='text/javascript'>alert('Silahkan isi semua data dengan LENGKAP');</script>";
+    }
+    else
+    {   
+        $srl=$soal1+$soal2+$soal3+$soal4+$soal5+$soal6+$soal7+$soal8;
+ 
+        $coba=mysqli_query($connect, "insert into tb_evaluasi_srl values('$idlog', '$namalog', '$soal1','$soal2', '$soal3', '$soal4', '$soal5', '$soal6', '$soal7', '$soal8', '$srl', now())") or die (mysqli_error());
+
+
+        if ($srl<=1.75) {
+          $srl_rendah=1;
+        } elseif ($srl>=1.75 && $srl<=3.5) {
+          $srl_rendah=(3.5-$srl)/1.75;
+        } else{
+          $srl_rendah=0;
+        }
+
+        if ($srl<=1.75 or $srl>=5.25) {
+          $srl_sedang=0;
+        } elseif ($srl>=1.75 && $srl<=3.5){
+          $srl_sedang=($srl-1.75)/1.75;
+        } elseif ($srl>=3.5 && $srl<=5.25) {
+          $srl_sedang=(5.25-$srl)/1.75;
+        }
+
+        if ($srl<=3.5) {
+          $srl_tinggi=0;
+        } elseif ($srl>=3.5 && $srl<=5.25) {
+          $srl_tinggi=($srl-3.5)/1.75;
+        } else {
+          $srl_tinggi=1;
+        }
+
+        mysqli_query($connect, "insert into tb_fuz_derajat_srl_sorting1 values('$idlog', '$srl_rendah', '$srl_sedang', '$srl_tinggi')") or die (mysqli_error());
+
+        $srl_max=max($srl_rendah,$srl_sedang,$srl_tinggi);
+
+        if ($srl_max==$srl_rendah) {
+          $kategori_srl=1;
+        }
+        elseif ($srl_max==$srl_sedang) {
+          $kategori_srl=2;
+        }
+        elseif ($srl_max==$srl_tinggi) {
+          $kategori_srl=3;
+        }
+
+        mysqli_query($connect, "insert into tb_evaluasi_srl_sorting1_kategori values('$idlog', '$srl_max', '$kategori_srl')") or die (mysqli_error());
+
+
+
+    }
+      echo "<script type='text/javascript'>alert('Penambahan Data Sukses');</script>";
+    }
+  
+  //E:Eksekusi Submit
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            
                         </div>
                     </div>
                 </div>
@@ -220,3 +402,9 @@
 </body>
 
 </html>
+<?php } 
+else
+{
+header('location:../../login/login_mhs.php');
+}
+?>

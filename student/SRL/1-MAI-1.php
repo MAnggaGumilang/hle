@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 session_start();
-include("../connect.php");
+include("connect.php");
 if (isset($_SESSION['idlog']) && isset($_SESSION['namalog'])){
 $idlog=$_SESSION['idlog'];
 $namalog=$_SESSION['namalog'];
@@ -23,23 +23,9 @@ $namalog=$_SESSION['namalog'];
 </head>
 
 <body>
-<!-- modal -->
-<div class="large reveal" id="exampleModal1" data-reveal>
-<div class="row"> 
-<div class="large-4 small-12 columns">
-<img class="thumbnail" src="../../assets/img/teacher.png">
-</div>
-<div class="large-8 small-12 columns">
-    <h2> Hi Akhsin! </h2>
-    <h3> Pertama kali anda harus mengisi kuisioner</h3>
-    <br/>
-    <p> Kusioner Metacognitive Awareness Inventory (MAI) adalah berguna untuk mengukur ... </p>
-</div>
-</div>
-</div>
 
 <!-- navbar -->
-<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+<!--<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
   <button class="menu-icon" type="button" data-toggle></button>
   <div class="title-bar-title">Menu</div>
 </div>
@@ -63,17 +49,20 @@ Bantuan <span class="primary badge">0</span> </button></li>
       </div>
 </div>
 
+
+<li><a class="logout" href="logout.php"><i class="fa fa-lock"></i>  Logout</a></li>
+
 <!-- Learning Status -->
-<div class="dropdown-pane" id="status" data-dropdown>
+<!--<div class="dropdown-pane" id="status" data-dropdown>
   <div class="row"> 
   <div class="large-3 small-12 columns">
       <img class="thumbnail circle" src="../../assets/img/profile-example.png">
-        <h5 class="user name"><?php echo $_SESSION['namalog'];?></h5>
-        <h6 class="matriculation id"><?php echo $_SESSION['idlog'];?></h6>
+        <h5 class="user name"><?php //echo $_SESSION['namalog'];?></h5>
+        <h6 class="matriculation id"><?php //echo $_SESSION['idlog'];?></h6>
         <h6> Total Waktu Belajar: <br> 1 Jam 56 Menit </h6>
   </div> <!-- kiri -->
 
-    <div class="large-9 small-12 columns">
+    <!--<div class="large-9 small-12 columns">
     <h5> Learning Progress </h5>
     <hr>
         <table>
@@ -99,10 +88,10 @@ Bantuan <span class="primary badge">0</span> </button></li>
 </table>
     </div>
   </div> <!-- row -->
-</div>
+<!--</div>
 
 <!-- pedagogical chat -->
-<div class="dropdown-pane" id="pedagogical-agent" data-dropdown>
+<!--<div class="dropdown-pane" id="pedagogical-agent" data-dropdown>
   <div class="chat-body"> 
     <img class="thumbnail circle" src="../../assets/img/profile-example.png">
     <div class="callout primary ">
@@ -122,6 +111,7 @@ Bantuan <span class="primary badge">0</span> </button></li>
 </div>
 
 <!-- timeline status -->
+<!--
 <div class="dropdown-pane" id="timeline" data-dropdown>
 <h2 align="center"> Self-Regulation Learning Progress </h2>
 <hr>
@@ -146,10 +136,6 @@ Bantuan <span class="primary badge">0</span> </button></li>
                                         Adaptive-Learning Materials
                                         <span class="details">Description of point 5</span>
                                     </li>
-                                      <li class="timeline">
-                                        Practical Strategy
-                                        <span class="details">Description of point 5</span>
-                                    </li>
                                     <li class="timeline">
                                         Learning Evaluation
                                         <span class="details">Description of point 6</span>
@@ -160,14 +146,15 @@ Bantuan <span class="primary badge">0</span> </button></li>
                                     </li>
                                 </ol>
                                 </div>
+
     <!-- Content -->
-    <div class="off-canvas-wrapper">
+    <!--<div class="off-canvas-wrapper">
         <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
             <div class="sidebar off-canvas position-left" id="offCanvasLeft" data-off-canvas>
                 <div class="profile">
                     <img class="thumbnail circle" src="../../assets/img/profile-example.png">
-                    <h5 class="user name"><?php echo $_SESSION['namalog'];?></h5>
-                    <h6 class="matriculation id"><?php echo $_SESSION['idlog'];?></h6>
+                    <h5 class="user name"><?php //echo $_SESSION['namalog'];?></h5>
+                    <h6 class="matriculation id"><?php //echo $_SESSION['idlog'];?></h6>
                 </div>
                 <ul class="nav">
                     <li><a href="../dashboard.php"><i class="fa fa-dashboard" aria-hidden="true"></i>Dashboard</a></li>
@@ -184,45 +171,68 @@ Bantuan <span class="primary badge">0</span> </button></li>
                         <button class="menu-icon" type="button" data-open="my-info" aria-expanded="false" aria-controls="my-info"></button>
                         <span class="title-bar-title">Sarah Ng</span>
                     </div>
-                </div>
+                </div>-->
+
+                
                 <div class="row main-wrapper rounded">
                     <div class="row top space">
                         <div class="columns">
                             <div class="top-bar">
-                             <h2 style="display: block;" align="center">Monitoring of Metacognitive Awareness Test</h2>
+                             <h2 style="display: block;" align="center">Metacognitive Awareness Test</h2>
+                             <h5 align="center"> <?php echo $_SESSION['namalog'];?> , <?php echo $_SESSION['idlog'];?> ( <a class="logout" href="logout.php"><i class="fa fa-lock"></i>  Logout</a> )</h5>
                             <hr width="75%" />
                             </div>
                         </div>
                     </div>
+                    <?php
+                    $mhs= mysqli_query($connect, "SELECT * FROM tb_mai_page1 WHERE id_mhs='$_SESSION[idlog]'");
+                    $mai_mhs=mysqli_num_rows($mhs);
+            if ($mai_mhs==0){
+            ?>
+            <!-- modal -->
+<!--<div class="large reveal" id="exampleModal1" data-reveal>
+<div class="row"> 
+<div class="large-4 small-12 columns">
+<img class="thumbnail" src="../../assets/img/teacher.png">
+</div>
+<div class="large-8 small-12 columns">
+    <h2> Hi <?php //echo $_SESSION['namalog'];?>! </h2>
+    <h3> Pertama kali anda harus mengisi kuisioner</h3>
+    <br/>
+    <p> Kusioner Metacognitive Awareness Inventory (MAI) adalah berguna untuk mengukur ... </p>
+</div>
+</div>
+</div>-->
+                    <form action=""  method="post" id="add-mai" class="form-horizontal">
                     <div class="columns main-wrapper rounded shadow">
                         <div class="page heading">
-                            <table class="projects" id="content">
+                            <table class="projects table" id="content">
                                 <thead>
                                     <tr>
-                                        <th width="10%">Nomor</th>
-                                        <th width="90%">Pertanyaan</th>
+                                        <th width="5%">Nomor</th>
+                                        <th width="95%">Pertanyaan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><code>1</code></td>
                                         <td>
-                                            Saya bertanya kepada diri sendiri, "Apakah Saya Sudah Mencapai Tujuan Saya?", Ketika sedang berupaya mencapai tujuan secara  intensif.
+                                            Saya bertanya kepada diri sendiri, ”Apakah saya sudah mencapai tujuan saya?”, ketika sedang berupaya mencapai tujuan secara intensif.
                                         </td>
                                     </tr>
                                     <tr>
                                         <td> 
-                                                 <legend>&nbsp;</legend>
+                                                 <legend></legend>
                                         </td>
                                         <td>
                                           <fieldset>
-      <input type="radio" name="MAI1" value="1" id="MAI11" required><label for="MAI11">1. Sangat Setuju</label>
-      <input type="radio" name="MAI1" value="2" id="MAI12"><label for="MAI12">2. Setuju</label>
-      <input type="radio" name="MAI1" value="3" id="MAI13"><label for="MAI13">3. Netral</label>
-      <input type="radio" name="MAI1" value="4" id="MAI14"><label for="MAI14">4. Tidak Setuju</label>
-      <input type="radio" name="MAI1" value="5" id="MAI15"><label for="MAI15">5. Sangat Tidak Setuju</label>
-    </fieldset>
-</td>
+                                            <input type="radio" name="MAI1" value="4" id="MAI10"><label for="MAI10">Selalu</label>
+                                            <input type="radio" name="MAI1" value="3" id="MAI11"><label for="MAI10">Sering</label>
+                                            <input type="radio" name="MAI1" value="2" id="MAI12"><label for="MAI11">Kadang-kadang</label>
+                                            <input type="radio" name="MAI1" value="1" id="MAI13"><label for="MAI12">Jarang</label>
+                                            <input type="radio" name="MAI1" value="0" id="MAI14"><label for="MAI13">Tidak Pernah</label>
+                                          </fieldset>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><code>2</code></td>
@@ -232,141 +242,222 @@ Bantuan <span class="primary badge">0</span> </button></li>
                                     </tr>
                                      <tr>
                                         <td> 
-                                                 <legend>&nbsp;</legend>
+                                                 <legend></legend>
                                         </td>
                                         <td>
                                           <fieldset>
-      <input type="radio" name="MAI2" value="1" id="MAI21" required><label for="MAI21">1. Sangat Setuju</label>
-      <input type="radio" name="MAI2" value="2" id="MAI22"><label for="MAI22">2. Setuju</label>
-      <input type="radio" name="MAI2" value="3" id="MAI23"><label for="MAI23">3. Netral</label>
-      <input type="radio" name="MAI2" value="4" id="MAI24"><label for="MAI24">4. Tidak Setuju</label>
-      <input type="radio" name="MAI2" value="5" id="MAI25"><label for="MAI25">5. Sangat Tidak Setuju</label>
-    </fieldset>
-</td>
+                                            <input type="radio" name="MAI2" value="4" id="MAI20"><label for="MAI20">Selalu</label>
+                                            <input type="radio" name="MAI2" value="3" id="MAI21"><label for="MAI21">Sering</label>
+                                            <input type="radio" name="MAI2" value="2" id="MAI22"><label for="MAI22">Kadang-kadang</label>
+                                            <input type="radio" name="MAI2" value="1" id="MAI23"><label for="MAI23">Jarang</label>
+                                            <input type="radio" name="MAI2" value="0" id="MAI24"><label for="MAI24">Tidak Pernah</label>
+                                          </fieldset>
+                                        </td>
                                     </tr>
 
                                     <tr>
                                         <td><code>3</code></td>
                                         <td>
-                                            Saya terus menerus mengatur diri selama belajar agar memiliki waktu yang cukup.
+                                            Saya coba menggunakan cara-cara yang pernah saya pakai sebelumnya.
                                         </td>
                                     </tr>
                                     <tr>
                                         <td> 
-                                                 <legend>&nbsp;</legend>
+                                                 <legend></legend>
                                         </td>
                                         <td>
                                           <fieldset>
-      <input type="radio" name="MAI3" value="1" id="MAI31" required><label for="MAI31">1. Sangat Setuju</label>
-      <input type="radio" name="MAI3" value="2" id="MAI32"><label for="MAI32">2. Setuju</label>
-      <input type="radio" name="MAI3" value="3" id="MAI33"><label for="MAI33">3. Netral</label>
-      <input type="radio" name="MAI3" value="4" id="MAI34"><label for="MAI34">4. Tidak Setuju</label>
-      <input type="radio" name="MAI3" value="5" id="MAI35"><label for="MAI35">5. Sangat Tidak Setuju</label>
-    </fieldset>
-</td>
+                                            <input type="radio" name="MAI3" value="4" id="MAI30"><label for="MAI30">Selalu</label>
+                                            <input type="radio" name="MAI3" value="3" id="MAI31"><label for="MAI31">Sering</label>
+                                            <input type="radio" name="MAI3" value="2" id="MAI32"><label for="MAI32">Kadang-kadang</label>
+                                            <input type="radio" name="MAI3" value="1" id="MAI33"><label for="MAI33">Jarang</label>
+                                            <input type="radio" name="MAI3" value="0" id="MAI34"><label for="MAI34">Tidak Pernah</label>
+                                          </fieldset>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><code>4</code></td>
                                         <td>
-                                            Saya berpikir tentang apa yang sebenarnya perlu saya pelajari sebelum mengerjakan tugas.
+                                            Saya terus menerus mengatur diri selama belajar agar memiliki waktu yang cukup.
                                         </td>
                                     </tr>
                                        <tr>
                                         <td> 
-                                                 <legend>&nbsp;</legend>
+                                                 <legend></legend>
                                         </td>
                                         <td>
                                           <fieldset>
-      <input type="radio" name="MAI4" value="1" id="MAI41" required><label for="MAI41">1. Sangat Setuju</label>
-      <input type="radio" name="MAI4" value="2" id="MAI42"><label for="MAI42">2. Setuju</label>
-      <input type="radio" name="MAI4" value="3" id="MAI43"><label for="MAI43">3. Netral</label>
-      <input type="radio" name="MAI4" value="4" id="MAI44"><label for="MAI44">4. Tidak Setuju</label>
-      <input type="radio" name="MAI4" value="5" id="MAI45"><label for="MAI45">5. Sangat Tidak Setuju</label>
-    </fieldset>
-</td>
+                                            <input type="radio" name="MAI4" value="4" id="MAI40"><label for="MAI40">Selalu</label>
+                                            <input type="radio" name="MAI4" value="3" id="MAI41"><label for="MAI41">Sering</label>
+                                            <input type="radio" name="MAI4" value="2" id="MAI42"><label for="MAI42">Kadang-kadang</label>
+                                            <input type="radio" name="MAI4" value="1" id="MAI43"><label for="MAI43">Jarang</label>
+                                            <input type="radio" name="MAI4" value="0" id="MAI44"><label for="MAI44">Tidak Pernah</label>
+                                          </fieldset>
+                                        </td>
                                     </tr>
 
                                     <tr>
                                         <td><code>5</code></td>
                                         <td>
-                                            Saya menyadari bagaimana baiknya saya menyelesaikan suatu tes.
+                                           Saya memahami kekuatan dan kelemahan kecerdasan saya.
                                         </td>
                                     </tr>
                                        <tr>
                                         <td> 
-                                                 <legend>&nbsp;</legend>
+                                                 <legend></legend>
                                         </td>
                                         <td>
                                           <fieldset>
-      <input type="radio" name="MAI5" value="1" id="MAI51" required><label for="MAI51">1. Sangat Setuju</label>
-      <input type="radio" name="MAI5" value="2" id="MAI52"><label for="MAI52">2. Setuju</label>
-      <input type="radio" name="MAI5" value="3" id="MAI53"><label for="MAI53">3. Netral</label>
-      <input type="radio" name="MAI5" value="4" id="MAI54"><label for="MAI54">4. Tidak Setuju</label>
-      <input type="radio" name="MAI5" value="5" id="MAI55"><label for="MAI55">5. Sangat Tidak Setuju</label>
-    </fieldset>
-</td>
+                                            <input type="radio" name="MAI5" value="4" id="MAI50"><label for="MAI50">Selalu</label>
+                                            <input type="radio" name="MAI5" value="3" id="MAI51"><label for="MAI51">Sering</label>
+                                            <input type="radio" name="MAI5" value="2" id="MAI52"><label for="MAI52">Kadang-kadang</label>
+                                            <input type="radio" name="MAI5" value="1" id="MAI53"><label for="MAI53">Jarang</label>
+                                            <input type="radio" name="MAI5" value="0" id="MAI54"><label for="MAI54">Tidak Pernah</label>
+                                          </fieldset>
+                                        </td>
                                     </tr>
 
                                     <tr>
                                         <td><code>6</code></td>
                                         <td>
-                                            Saya menyusun tujuan-tujuan khusus sebelum saya mengerjakan tugas.
+                                           Saya berpikir tentang apa yang sebenarnya perlu saya pelajari sebelum mengerjakan tugas.
                                         </td>
                                     </tr>
                                     </tr>
                                        <tr>
                                         <td> 
-                                                 <legend>&nbsp;</legend>
+                                                 <legend></legend>
                                         </td>
                                         <td>
                                           <fieldset>
-      <input type="radio" name="MAI6" value="1" id="MAI61" required><label for="MAI61">1. Sangat Setuju</label>
-      <input type="radio" name="MAI6" value="2" id="MAI62"><label for="MAI62">2. Setuju</label>
-      <input type="radio" name="MAI6" value="3" id="MAI63"><label for="MAI63">3. Netral</label>
-      <input type="radio" name="MAI6" value="4" id="MAI64"><label for="MAI64">4. Tidak Setuju</label>
-      <input type="radio" name="MAI6" value="5" id="MAI65"><label for="MAI65">5. Sangat Tidak Setuju</label>
-    </fieldset>
-</td>
-                                    </tr>
+                                            <input type="radio" name="MAI6" value="4" id="MAI60"><label for="MAI60">Selalu</label>
+                                            <input type="radio" name="MAI6" value="3" id="MAI61"><label for="MAI61">Sering</label>
+                                            <input type="radio" name="MAI6" value="2" id="MAI62"><label for="MAI62">Kadang-kadang</label>
+                                            <input type="radio" name="MAI6" value="1" id="MAI63"><label for="MAI63">Jarang</label>
+                                            <input type="radio" name="MAI6" value="0" id="MAI64"><label for="MAI64">Tidak Pernah</label>
+                                          </fieldset>
+                                        </td>
+                                      </tr>
                                     <tr>
                                         <td><code>7</code></td>
                                         <td>
-                                            Saya bertindak perlahan-lahan dan hati-hati bila mana menjumpai informasi penting.
+                                            Saya menyadari bagaimana baiknya saya menyelesaikan suatu tes.
                                         </td>
                                     </tr>
                                     </tr>
                                        <tr>
                                         <td> 
-                                                 <legend>&nbsp;</legend>
+                                                 <legend></legend>
                                         </td>
                                         <td>
                                           <fieldset>
-      <input type="radio" name="MAI7" value="1" id="MAI71" required><label for="MAI71">1. Sangat Setuju</label>
-      <input type="radio" name="MAI7" value="2" id="MAI72"><label for="MAI72">2. Setuju</label>
-      <input type="radio" name="MAI7" value="3" id="MAI73"><label for="MAI73">3. Netral</label>
-      <input type="radio" name="MAI7" value="4" id="MAI74"><label for="MAI74">4. Tidak Setuju</label>
-      <input type="radio" name="MAI7" value="5" id="MAI75"><label for="MAI75">5. Sangat Tidak Setuju</label>
-    </fieldset>
-</td>
-                                    </tr>
+                                            <input type="radio" name="MAI7" value="4" id="MAI70"><label for="MAI70">Selalu</label>
+                                            <input type="radio" name="MAI7" value="3" id="MAI71"><label for="MAI71">Sering</label>
+                                            <input type="radio" name="MAI7" value="2" id="MAI72"><label for="MAI72">Kadang-kadang</label>
+                                            <input type="radio" name="MAI7" value="1" id="MAI73"><label for="MAI73">Jarang</label>
+                                            <input type="radio" name="MAI7" value="0" id="MAI74"><label for="MAI74">Tidak Pernah</label>
+                                          </fieldset>
+                                        </td>
+                                      </tr>
                                 </tbody>
                             </table>
-                            <ul class="pagination text-center" role="navigation" aria-label="Pagination" id="page-selection">
+                            <!--<ul class="pagination text-center" role="navigation" aria-label="Pagination" id="page-selection">
                                 <li class="pagination-previous disabled">Previous</li>
                                 <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
                                 <li><a href="1-MAI-2.php" aria-label="Page 2">2</a></li>
                                 <li><a href="1-MAI-3.php" aria-label="Page 3">3</a></li>
                                 <li><a href="1-MAI-4.php" aria-label="Page 4">4</a></li>
                                 <li><a href="1-MAI-5.php" aria-label="Page 5">5</a></li>
+                                <li><a href="1-MAI-6.php" aria-label="Page 6">6</a></li>
+                                <li><a href="1-MAI-7.php" aria-label="Page 7">7</a></li>
                                 <li class="pagination-next"><a href="1-MAI-2.php" aria-label="Next page">Next</a></li>
-                            </ul>
+                            </ul>-->
+                            <!--<input type="hidden" name="redirect-url" value="1-MAI-2.php">-->
+                            <!--<input class="button expanded success" type="submit" name="submit">-->
+                            <div class="form-actions">
+                      <button type="submit" name="submit" class="button success expanded">Submit</button> 
+                    </div> <!-- /form-actions -->
+
+                            
+                            </form>
+                            <?php }
+              else {
+                ?>
+               <div class="columns main-wrapper rounded shadow">
+                 <div class="alert alert-success" align="center"><h5>Anda sudah mengisi kuesioner pada halaman ini.</h5><br>
+                  <a href="1-MAI-2.php" class="pagination-next button">Lanjutkan kuesioner</a></div></div>
+                <?php
+              }
+              ?>
                         </div>
                     </div>
                 </div>
+
                 <div class="js-off-canvas-exit"></div>
             </div>
         </div>
     </div>
+    <?php  //S:Eksekusi Submit
+  if (isset($_POST['submit']))
+  {
+    $idlog=$_SESSION['idlog'];
+    $namalog=$_SESSION['namalog'];
+    $MAI1=$_POST['MAI1'];
+    $MAI2=$_POST['MAI2'];
+    $MAI3=$_POST['MAI3'];
+    $MAI4=$_POST['MAI4'];
+    $MAI5=$_POST['MAI5'];
+    $MAI6=$_POST['MAI6'];
+    $MAI7=$_POST['MAI7'];
+
+      // echo "masuk";
+
+    if($MAI1=="" || $MAI2=="" ||$MAI3=="" || $MAI4=="" || $MAI5=="" || $MAI6=="" || $MAI7=="" )
+    {
+        echo "<script type='text/javascript'>alert('Silahkan isi semua data dengan LENGKAP');</script>";
+    }
+    else
+    {
+ 
+        $coba=mysqli_query($connect, "insert into tb_mai_page1 values('$idlog', '$namalog', '$MAI1','$MAI2', '$MAI3', '$MAI4', '$MAI5', '$MAI6', '$MAI7', now())") or die (mysqli_error());
+
+
+
+
+        ?>
+
+<div class="large reveal" id="exampleModal1" data-reveal>
+<div class="row"> 
+<div class="large-4 small-12 columns">
+<img class="thumbnail" src="../../assets/img/teacher.png">
+</div>
+<div class="large-8 small-12 columns">
+    <h2> Hi <?php echo $_SESSION['namalog'];?>! </h2>
+    <h3></h3>
+    <br/>
+    <p> Kamu telah mengisi kuesioner pada halaman ini. </p>
+    <a href="1-MAI-2.php" class="pagination-next button">Lanjutkan kuesioner</a>
+</div>
+</div>
+</div>
+
+
+        <?php
+        header('location:1-MAI-2.php');
+        
+        
+
+           
+          //if($query){
+            //header('Location: 1-MAI-2.php');
+          //}
+      
+      //echo "<script type='text/javascript'>alert('Penambahan Data Sukses');</script>";
+      //header('location:1-MAI-2.php');
+    }
+  }
+  //E:Eksekusi Submit
+?>
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../assets/js/foundation.js"></script>
         <script src="../../assets/js/jquery.bootpag.js"></script>
@@ -385,10 +476,9 @@ Bantuan <span class="primary badge">0</span> </button></li>
 </body>
 
 </html>
-</html>
 <?php } 
 else
 {
-header('location:../login/login_mhs.php');
+header('location:../../login/login_mhs.php');
 }
 ?>

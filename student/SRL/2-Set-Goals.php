@@ -1,3 +1,11 @@
+<?php
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+session_start();
+include("connect.php");
+if (isset($_SESSION['idlog']) && isset($_SESSION['namalog'])){
+$idlog=$_SESSION['idlog'];
+$namalog=$_SESSION['namalog'];
+?>
 <!DOCTYPE html>
 <html class="" lang="en">
   <head>
@@ -15,12 +23,12 @@
   <body>
   <!-- modal -->
 <div class="large reveal" id="exampleModal1" data-reveal>
-<div class="row">
+<div class="row"> 
 <div class="large-4 small-12 columns">
           <img class="thumbnail" src="../../assets/img/teacher.png">
 </div>
 <div class="large-8 small-12 columns">
-    <h2> Terimakasih Akhsin! </h2>
+    <h2> Terimakasih <?php echo $_SESSION['namalog'];?>! </h2>
     <h3> Saatnya kamu memilih materi yang akan dipelajari.</h3>
     <br/>
     <p> Berdasarkan hasil kuisioner MAI dan pemahaman awal kamu terhadap materi, sistem menyarankankan untuk kamu mengambil materi: </p>
@@ -36,37 +44,24 @@
                         <td>
                           <ul class="accordion" data-accordion data-allow-all-closed="true">
                             <li class="accordion-item" data-accordion-item>
-                              <a href="#" class="accordion-title">1. Struktur Data dan Abstract Data Type (ADT)</a>
+                              <a href="#" class="accordion-title">1. Sorting I</a>
                               <div class="accordion-content" data-tab-content>
                                 <span class="primary badge">
-                                1.1. </span> Sturktur Data
-                                <span class="secondary badge">
-                                1.2. </span> Implementasi ADT
+                                1.1. </span> Bubble Sort <br>
+                                <span class="primary badge">
+                                1.2. </span> Selection Sort <br>
+                                <span class="primary badge">
+                                1.3. </span> Insertion Sort <br>
+                                <span class="primary badge">
+                                1.4. </span> Shell Sort <br>
+                                <span class="primary badge">
+                                1.5. </span> Merge Sort <br>
                               </div>
                             </li>
                           </ul>
                         </td>
                         <td>
-                          <span class="success label"> Lewati </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <ul class="accordion" data-accordion data-allow-all-closed="true">
-                            <li class="accordion-item" data-accordion-item>
-                              <a href="#" class="accordion-title">2. Tumpukan</a>
-                              <div class="accordion-content" data-tab-content>
-                                <span class="primary badge">
-                                2.1. </span> Tumpukan Biasa
-                                <span class="secondary badge">
-                                2.2. </span> Operasi pada Tumpukan
-                                <span class="success badge">2.3.</span> Aplikasi pada Tumpukan
-                              </div>
-                            </li>
-                          </ul>
-                        </td>
-                        <td>
-                          <span class="warning label"> Ambil </span>
+                          <a href="../SRL/3-Sorting1-Activating-Prior-Knowledge.php" class="success label"> Ambil </a>
                         </td>
                       </tr>
                     </tbody>
@@ -184,10 +179,6 @@ Bantuan <span class="primary badge">0</span> </button></li>
                                         Adaptive-Learning Materials
                                         <span class="details">Description of point 5</span>
                                     </li>
-                                      <li class="timeline">
-                                        Practical Strategy
-                                        <span class="details">Description of point 5</span>
-                                    </li>
                                     <li class="timeline">
                                         Learning Evaluation
                                         <span class="details">Description of point 6</span>
@@ -239,55 +230,34 @@ Bantuan <span class="primary badge">0</span> </button></li>
                                           <div class="row top bottom space">
                                               <div class="small-12 large-6 columns text-center">
                                                <img class="thumbnail" src="../../assets/img/data.png" alt="data icon" width="50%">
-                                               <h5> Data Structure dan ADT </h5>
+                                               <h5> Sorting I </h5>
                                                <hr width="50%">
                                                <p> Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet</p>
 <!--                                                <a class="expanded button" href="#0">Ambil Materi</a>
                                                <a class="expanded warning button" href="#0">Lewati Materi</a> -->
                                                <hr width="50%">
-                                               <h5> Ambil Materi ? </h5>
-                                                <div class="switch large">
-                                                <input class="switch-input" id="1" type="checkbox" name="exampleSwitch">
-                                                <label class="switch-paddle" for="1">
-                                                    <span class="show-for-sr">Do you like me?</span>
-                                                    <span class="switch-active" aria-hidden="true">Y</span>
-                                                    <span class="switch-inactive" aria-hidden="true">N</span>
-                                                </label>
+                                                
+                                                
                                                 <hr width="50%">
-                                                 <label>Tingkat Kesulitan
-    <select>
-      <option value="mudah">mudah</option>
-      <option value="sedang">sedang</option>
-      <option value="sulit">sulit</option>
-    </select>
-  </label>
-                                            </div>
+                                               
+                                                <a href="../SRL/3-Sorting1-Activating-Prior-Knowledge.php" class="button success expanded">Ambil materi ini</a>
+                                                 
+                                            
                                               </div>
                                                <div class="small-12 large-6 columns text-center">
                                                <img class="thumbnail" src="../../assets/img/stack.png" alt="data icon" width="50%">
-                                               <h5> Tumpukan (Stack) </h5>
+                                               <h5> Sorting II</h5>
                                                <hr width="50%">
                                                <p> Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet</p>
+
 <!--                                                <a class="expanded button" href="#0">Ambil Materi</a>
                                                <a class="expanded warning button" href="#0">Lewati Materi</a> -->
                                                 <hr width="50%">
-                                               <h5> Ambil Materi ? </h5>
-                                                <div class="switch large">
-                                                <input class="switch-input" id="2" type="checkbox" name="exampleSwitch2">
-                                                <label class="switch-paddle" for="2">
-                                                    <span class="show-for-sr">Do you like me?</span>
-                                                    <span class="switch-active" aria-hidden="true">Y</span>
-                                                    <span class="switch-inactive" aria-hidden="true">N</span>
-                                                </label>
+                                                
                                                 <hr width="50%">
-                                                       <label>Tingkat Kesulitan
-    <select>
-      <option value="mudah">mudah</option>
-      <option value="sedang">sedang</option>
-      <option value="sulit">sulit</option>
-    </select>
-  </label>
-                                              </div>
+                                                <a href="../SRL/3-Sorting2-Activating-Prior-Knowledge.php" class="button success expanded">Ambil materi ini</a>
+                                                      
+                                            
 <!--                                              <div class="small-12 large-4 columns text-center">
                                                <img class="thumbnail" src="../../assets/img/queue.png" alt="data icon">
                                                <h5> Antrian (Queue) </h5>
@@ -298,7 +268,6 @@ Bantuan <span class="primary badge">0</span> </button></li>
                                               </div> -->
                                              </div>
                                           </div>
-                                          <a class="button primary expanded">Lanjutkan</a> 
                                     </div>
 
 
@@ -320,3 +289,9 @@ Bantuan <span class="primary badge">0</span> </button></li>
     </script>
   </body>
 </html>
+<?php } 
+else
+{
+header('location:../../login/login_mhs.php');
+}
+?>

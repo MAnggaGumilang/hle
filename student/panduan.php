@@ -115,6 +115,6 @@ $namalog=$_SESSION['namalog'];
 <?php } 
 else
 {
-header('location:../login/login_mhs.php');
+header('location:../../login/login_mhs.php');
 }
 ?>
