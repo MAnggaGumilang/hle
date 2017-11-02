@@ -51,38 +51,82 @@ $namalog=$_SESSION['namalog'];
                         <div class="page heading">
                             <h2 align="center">Rencana Program Kegiatan Pembelajaran Semester (RPKPS)</h2>
                             <div class="callout">
-                            <h5>Deskripsi Singkat Mata Kuliah</h5>
-                            <p> Mata kuliah ini mempelajari tentang paradigma pemrograman, pengertian algoritma, syarat-syarat algoritma, flowchart dan pseudocode, kompleksitas waktu eksekusi, iterasi dan rekursi. Sebagai konsep yang mendasari struktur data, dipelajari representasi data, tipe data, deklarasi variabel, deklarasi tipe data dengan ADT, alokasi memori dan struktur, deklarasi struktur, union, struktur data satu dimensi, dua dimensi dan tiga dimensi. Stack & Queue serta implementasinya. </p>
-                            <p> Selanjutnya diberikan pelajaran macam –macam struktur data yaitu : struktur list tunggal, struktur list doubly, struktur list circular, struktur array, struktur pohon dan struktur graph. Update data (sisipkan dan hapus data) bagi berbagai model struktur data juga dipelajari di sini. Selanjutnya diberikan pemahaman tentang berbagai algoritma sorting dan unjukkerja masing-masing algoritma itu. Berbagai algoritma searching dan unjukkerjanya dipelajari di sini secara lebih mendalam untuk mendasari implementasi struktur data dalam sistem basis data. </p>
-                            </div>
-                            <div class="callout primary">
-                            <h5>Tujuan Pembelajaran</h5>
-                            <p> Dengan mempelajari Algoritma dan Struktur Data ini, diharapkan : </p>
-                            <ol>
-                                <li> Mahasiswa dapat memahami arti dan manfaat algoritma dan struktur data, syarat-syarat algoritma, kopleksitas waktu eksekusi program, teknik dan gaya pemrograman, serta langkah pemrograman yang efektif dan efisien </li>
-                                <li> Mahasiswa dapat memahami dan mengimplementasikan dalam pemrograman untuk membagun berbagai macam model struktur data seperti : tumpukan, queue, list, array, pohon, dan graph. </li>
-                                <li> Mahasiswa dapat memahami dan mengimplementasikan cara updating data dari berbagai model struktur data. </li>
-                                <li> Mahasiswa dapat memahami berbagai macam algoritma sorting data dan unjukkerjanya masing-masing algoritma itu. </li>
-                                <li> Mahasiswa dapat memahami dan mengimplementasikan dalam program berbagai algoritma searchig data dan unjukkerjanya masing-masing. </li>
-                            </ol>
+                            <h5>Tujuan Instruksional Umum</h5>
+                            <h7><b>Dengan mempelajari Algoritma dan Struktur Data ini, diharapkan:</b></h7>
+                            <ul>
+                                <li>Mahasiswa mempelajari tentang paradigma pemrograman, pengertian algoritma, syarat-syarat algoritma, flowchart dan pseudocode, kompleksitas waktu eksekusi, iterasi dan rekursi.</li>
+                                <li>Mahasiswa memahami konsep dasar struktur data.</li>
+                                <li>Selanjutnya diberikan pelajaran macam–macam struktur data dan bentuk-bentuk algoritme yang ada.</li>
+                            </ul>
+
                             </div>
                             <div class="callout">
-                            <h5>Materi Pembelajaran</h5>
-                            <ul>
-                                <li>Teknik Pemrograman</li>
-                                <li>Struktur Data dan ADT</li>
+                            <h5>Tujuan Instruksional Khusus</h5>
+                            <table>
+                                <tr>
+                                    <td width="10%"></td>
+                                    <td width="90%"></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><b>No</b></td>
+                                    <td><b>Learning Outcome</b></td>
+                                
+                                </tr>
+                                <tr>
+                                    <td align="center">1</td>
+                                    <td>Mahasiswa dapat memahami arti dan manfaat algoritma dan struktur data, syarat-syarat algoritma dan kompleksitas algoritma.</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td align="center">2</td>
+                                    <td>Mahasiswa dapat menjelaskan dan mengimplementasikan representasi data, membuat deklarasi data atas berbagai tipe data , variabel dan Abstract Data Type (ADT).</td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td align="center">3</td>
+                                    <td>Mahasiswa dapat memahami dan mengimplementasikan dalam pemrograman untuk membagun berbagai macam model struktur data seperti : tumpukan, queue, list, array, pohon, dan graph.</td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td align="center">4</td>
+                                    <td>Mahasiswa dapat memahami berbagai macam algoritma sorting data dan unjuk kerjanya masing-masing algoritma itu.</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td align="center">5</td>
+                                    <td>Mahasiswa dapat memahami dan mengimplementasikan dalam program berbagai algoritma searching data dan unjuk kerja masing-masing.</td>
+                                   
+                                </tr>
+                            </table>
+                            </div>
+                            <div class="callout">
+                            <h5>Topik Pembelajaran</h5>
+                            <ol>
+                                <li>Pendahuluan</li>
+                                <li>Analisis Algoritma</li>
+                                <li>Struktur Data dan <i>Abstract Data Type</i> (ADT)</li>
                                 <li>Tumpukan</li>
                                 <li>Antrian</li>
-                                <li>List</li>
-                                <li>Tree</li>
-                                <li>Sorting Data</li>
-                                <li>Searching</li>
+                                <li>Struktur List</li>
+                                <li>Struktur Pohon</li>
+                                <li><i>Sorting Data</i></li>
+                                <li><i>Searching Data</i></li>
                                 <li>Struktur Data Graph</li>
-                            </ul>
-                            </div>
+                            </ol>
+                        </div>
+                        <div class="callout">
+                            <h5>Pustaka</h5>
+                            <ol>
+                                <li>McMillan, M : Data Structures and Algoritms Using C#, Cambridge University Press, 2007 </li>
+                                <li>Mehta, D.P and Sahni, S:Handbook of DATA STRUCTURES and APPLICATIONS, Chapman & Hall/CRC Computer and Information Science Series, 2005 </li>
+                                <li>Unduhan Internet tentang Data Structures and Algorithms </li>
+                            </ol>
+                        </div>
                         </div>
                     </div>
                 </div>
+                
+                <a href="../student/SRL/2-Set-Goals.php" class="button expanded success"> Lanjutkan</a>
                 <div class="js-off-canvas-exit"></div>
             </div>
         </div>
@@ -98,6 +142,6 @@ $namalog=$_SESSION['namalog'];
 <?php } 
 else
 {
-header('location:../login/login_mhs.php');
+header('location:../../login/login_mhs.php');
 }
 ?>

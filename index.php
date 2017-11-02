@@ -73,8 +73,7 @@
             <h5 id="typed"> &nbsp;</h5>
             <hr>
             <h5> Apa itu Self Regulated Learning ? </h5>
-            <p align="left" class="pengertian"> Self-Regulated Learning (SRL) adalah salah satu kemampuan metakoginisi untuk pembelajar dalam usia dewasa.
-            SRL Memungkinkan kita dapat menentukan sendiri strategi, pilihan materi, dan dapat melakukan <i> self-evaluation </i>dalam tahapan pembelajaran.
+            <p align="left" class="pengertian"> Self-Regulated Learning (SRL) adalah sebuah konsep mengenai bagaimana seorang peserta didik menjadi regulator atau pengatur bagi belajarnya sendiri. Selain itu SRL juga diartikan sebagai pengawasan atas perilaku dalam belajar sebagai hasil dari proses internal dari tujuan, perencanaan, dan penghargaan diri sendiri atas prestasi yang telah diraih. SRL mengacu pada proses yang digunakan orang yang belajar untuk memfokuskan pikiran, perasaan, dan tindakan secara sistematis dalam pencapaian tujuan. SRL Memungkinkan kita dapat menentukan sendiri strategi, pilihan materi, dan dapat melakukan <i> self-evaluation </i>dalam tahapan pembelajaran.
             Dalam E-Learning ini disedikan berbagai pilihan strategi belajar, pilihan materi dan <i> self-monitoring </i> dalam setiap siklus pembelajarannya. E-Learning ini dikembangkan guna untuk melatih kemampuan SRL dan mekognisi pembelajar sesuai tahapan SRL.
             <a href="#cd-timeline"> Pelajari tahapan SRL</a> </p>
         </div>
@@ -116,8 +115,8 @@
             </div> <!-- cd-timeline-img -->
 
             <div class="cd-timeline-content">
-                <h2>Activating Prior Knowledge</h2>
-                <p>Activating Prior Knowledge Merupakan tahap yang harus dilalui sebelum menentukan strategi pembelajaran dan memulai belajar. Activating Prior Knowledge seperti sebuh pre-test sebelum memulai pembelajaran. Soal yang disajikan dalam tahap ini berhubungan dengan materi yang akan diambil.</p>
+                <h2>Prior Knowledge Activation</h2>
+                <p>Prior Knowledge Activation merupakan tahap yang harus dilalui sebelum menentukan strategi pembelajaran dan memulai belajar. Activating Prior Knowledge seperti sebuh pre-test sebelum memulai pembelajaran. Soal yang disajikan dalam tahap ini berhubungan dengan materi yang akan diambil.</p>
                 <span class="cd-date">Ketiga</span>
             </div> <!-- cd-timeline-content -->
         </div> <!-- cd-timeline-block -->
@@ -128,7 +127,7 @@
             </div> <!-- cd-timeline-img -->
 
             <div class="cd-timeline-content">
-                <h2>Set Learning strategy</h2>
+                <h2>Set Learning Strategy</h2>
                 <p>Setelah melakukan Activating Prior Knowledge pembelajar dapat menentukan strategi belajar yang akan digunakan dalam proses pembelajaran selanjutnya. Startegi yang dapat dipilih dalam E-Learning ini terdiri dari: (1) Control Video, (2) Summary, dan (3) Draw. </p>
                 <span class="cd-date">Keempat</span>
             </div> <!-- cd-timeline-content -->
@@ -196,18 +195,16 @@
                     <p align="left"> Mata kuliah ini mempelajari tentang paradigma pemrograman, pengertian algoritma, syarat-syarat algoritma, flowchart dan pseudocode, kompleksitas waktu eksekusi, iterasi dan rekursi. Sebagai konsep yang mendasari struktur data, dipelajari representasi data, tipe data, deklarasi variabel, deklarasi tipe data dengan ADT, alokasi memori dan struktur, deklarasi struktur, union, struktur data satu dimensi, dua dimensi dan tiga dimensi. Stack & Queue serta implementasinya. </p>
                 </div>
                 <hr/>
-                <h4> Tujuan Pembelajaran </h4>
+                <h4>Tujuan Instruksional Umum</h4>
                 <hr/>
                 <div class="small-12 large-3 columns">
                     <i class="fa fa-check fa-5x" aria-hidden="true"> </i>
                 </div>
                 <div class="small-12 large-9 columns" align="left">
                     <ul>
-                        <li>Mahasiswa dapat memahami arti dan manfaat algoritma dan struktur data, syarat-syarat algoritma, kopleksitas waktu eksekusi program, teknik dan gaya pemrograman, serta langkah pemrograman yang efektif dan efisien.</li>
-                        <li> Mahasiswa dapat memahami dan mengimplementasikan dalam pemrograman untuk membagun berbagai macam model struktur data seperti : tumpukan, queue, list, array, pohon, dan graph. </li>
-                        <li> Mahasiswa dapat memahami dan mengimplementasikan cara updating data dari berbagai model struktur data. </li>
-                        <li> Mahasiswa dapat memahami berbagai macam algoritma sorting data dan unjukkerjanya masing-masing algoritma itu. </li>
-                        <li> Mahasiswa dapat memahami dan mengimplementasikan dalam program berbagai algoritma searchig data dan unjukkerjanya masing-masing.</li>
+                        <li>Mahasiswa mempelajari tentang paradigma pemrograman, pengertian algoritma, syarat-syarat algoritma, flowchart dan pseudocode, kompleksitas waktu eksekusi, iterasi dan rekursi.</li>
+                        <li>Mahasiswa memahami konsep dasar struktur data.</li>
+                        <li>Selanjutnya diberikan pelajaran macam–macam struktur data dan bentuk-bentuk algoritme yang ada.</li>
                     </ul>
                 </div>
                 <hr/>

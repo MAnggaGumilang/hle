@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 session_start();
-include("../connect.php");
+include("connect.php");
 if (isset($_SESSION['idlog']) && isset($_SESSION['namalog'])){
 $idlog=$_SESSION['idlog'];
 $namalog=$_SESSION['namalog'];
@@ -36,7 +36,7 @@ $namalog=$_SESSION['namalog'];
                     <li><a href="../student/deskripsi.php"><i class="fa fa-info" aria-hidden="true"></i>Deskripsi</a></li>
                     <li><a href="panduan.php"><i class="fa fa-question-circle" aria-hidden="true"></i>Panduan</a></li>
                     <li><a href="user-profile.php"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-                    <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i>SRL</a></li>
+                    <li><a href="../student/SRL/2-Set-Goals.php"><i class="fa fa-tasks" aria-hidden="true"></i>SRL</a></li>
                     <li><a href="#"><i class="fa fa-unlock"></i> Logout</a></li>
                 </ul>
             </div>
@@ -57,12 +57,74 @@ $namalog=$_SESSION['namalog'];
                                 <div class="top-bar">
                                     <div class="small-12 large-9 columns">
                                         <h4>Notifikasi</h4>
-                                        <h6 class="balance">
-                                        <span class="warning badge"> 1. </span> Anda belum mengikuti MAI tes</h6>
-                                    </div>
-                                    <div class="small-12 large-3 columns top space">
-                                        <a href="../student/SRL/1-MAI-1.php" class="button expanded success"> MAI tes sekarang </a>
-                                    </div>
+                                     
+                <h6 class="balance">
+                                        <span class="warning badge"> 1. </span> Anda sudah mengikuti MAI tes</h6>
+                                        <form action=""  method="post" id="add-score" class="form-horizontal">
+
+                                        <?php $sql1=mysqli_query($connect,"SELECT
+tb_fuz_skor_mhs_mai.id_mhs AS id_mhs1,
+tb_fuz_kategori.id_mhs AS id_mhs2,
+tb_fuz_skor_mhs_mai.knowledge AS knowledge,
+tb_fuz_skor_mhs_mai.regulation AS regulation,
+tb_fuz_kategori.knowledge AS fuz_knowledge,
+tb_fuz_kategori.regulation AS fuz_regulation,
+tb_fuz_kategori.knowledge_kategori AS knowledge_kategori,
+tb_fuz_kategori.regulation_kategori AS regulation_kategori
+FROM
+tb_fuz_skor_mhs_mai
+INNER JOIN tb_fuz_kategori ON tb_fuz_skor_mhs_mai.id_mhs = tb_fuz_kategori.id_mhs
+WHERE tb_fuz_skor_mhs_mai.id_mhs='$_SESSION[idlog]' and tb_fuz_kategori.id_mhs='$_SESSION[idlog]'");
+                                        $data1=mysqli_fetch_array($sql1);
+                                        $fuz_knowledge=$data1['fuz_knowledge'];
+                                        $fuz_regulation=$data1['fuz_regulation'];
+                                        $knowledge_kategori=$data1['knowledge_kategori'];
+                                        $regulation_kategori=$data1['regulation_kategori'];
+
+                                        ?>
+
+                                        <table>
+                                            <tr>
+                                                <th width="20%">Knowledge</th>
+                                                <th width="5%">:</th>
+                                                <th width="10%"><?php echo "nilai knowledge $fuz_knowledge"; ?></th>
+                                                <th width="10%"> level<?php 
+
+                                            if ($knowledge_kategori==1) {
+                                                echo "rendah";
+                                            }
+                                            elseif ($knowledge_kategori==2) {
+                                                echo "sedang";
+                                            }
+                                            elseif ($knowledge_kategori==3) {
+                                                echo "tinggi";
+                                            } ?></th>
+                                              
+                                            <th width="55"></th>
+                                            </tr>
+                                            <tr>
+                                                <th width="20%">Regulation</th>
+                                                <th width="5%">:</th>
+                                                <th width="10%"><?php echo "$fuz_regulation"; ?></th>
+                                                <th width="10%"><?php 
+
+                                                if ($regulation_kategori==1) {
+                                                    echo "rendah";
+                                                }
+                                                elseif ($regulation_kategori==2) {
+                                                    echo "sedang";
+                                                }
+                                                elseif ($regulation_kategori==3) {
+                                                    echo "tinggi";
+                                                } ?></th>
+                                                
+                                            <th width="55"></th>
+                                        </tr>
+                                            
+
+                                        </table>
+                                         <a href="../student/deskripsi.php" class="button expanded success"> Mulai Belajar</a>
+
                                 </div>
                             </div>
                         </div>
@@ -174,6 +236,6 @@ $namalog=$_SESSION['namalog'];
 <?php } 
 else
 {
-header('location:../login/login_mhs.php');
+header('location:../../login/login_mhs.php');
 }
 ?>
